@@ -13,7 +13,7 @@ dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/pt
 data_cache=./cache/
 per_device_train_batch_size=1
 gradient_accumulation_steps=1
-block_size=512
+block_size=256
 output_dir=output_dir
 
 deepspeed_config_file=ds_zero2_no_offload.json
