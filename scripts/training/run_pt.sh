@@ -18,7 +18,7 @@ output_dir=output_dir
 
 deepspeed_config_file=ds_zero2_no_offload.json
 
-torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
+torchrun --nnodes 1 --nproc_per_node 1 scripts/training/run_clm_pt_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${chinese_tokenizer_path} \
@@ -29,6 +29,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --do_train \
     --seed $RANDOM \
     --fp16 \
+    --max_steps ${training_steps} \
     --num_train_epochs 1 \
     --lr_scheduler_type cosine \
     --learning_rate ${lr} \
@@ -38,7 +39,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --logging_steps 10 \
     --save_strategy steps \
     --save_total_limit 3 \
-    --save_steps 200 \
+    --save_steps 500 \
     --gradient_accumulation_steps ${gradient_accumulation_steps} \
     --preprocessing_num_workers 8 \
     --block_size ${block_size} \
@@ -49,10 +50,10 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --lora_rank ${lora_rank} \
     --lora_alpha ${lora_alpha} \
     --trainable ${lora_trainable} \
-    --lora_dropout ${lora_dropout} \
     --modules_to_save ${modules_to_save} \
+    --lora_dropout ${lora_dropout} \
     --torch_dtype float16 \
-    --load_in_kbits 16 \
-    --save_safetensors False \
+    --resume True \
+    --resume_from_checkpoint ${resume_from} \
     --gradient_checkpointing \
     --ddp_find_unused_parameters False
