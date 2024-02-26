@@ -7,15 +7,15 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=path/to/hf/llama-2/or/chinese-llama-2/dir/or/model_id
-chinese_tokenizer_path=path/to/chinese-llama-2/tokenizer/dir
-dataset_dir=path/to/sft/data/dir
+pretrained_model=/kaggle/working/chinese-alpaca-2-1.3b
+chinese_tokenizer_path=/kaggle/working/chinese-alpaca-2-1.3b
+dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/in_test
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
 gradient_accumulation_steps=8
 max_seq_length=512
-output_dir=output_dir
-validation_file=validation_file_name
+output_dir=/kaggle/working/new
+validation_file=/kaggle/working/Chinese-LLaMA-Alpaca-2/in_test/vaild.json
 
 deepspeed_config_file=ds_zero2_no_offload.json
 
