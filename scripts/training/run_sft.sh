@@ -9,13 +9,13 @@ lora_dropout=0.05
 
 pretrained_model=/kaggle/working/chinese-alpaca-2-1.3b
 chinese_tokenizer_path=/kaggle/working/chinese-alpaca-2-1.3b
-dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/in_test/couplets.json
+dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/dataset/training
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
 gradient_accumulation_steps=8
 max_seq_length=512
 output_dir=/kaggle/working/new
-validation_file=/kaggle/working/Chinese-LLaMA-Alpaca-2/in_test/vaild.json
+validation_file=/kaggle/working/Chinese-LLaMA-Alpaca-2/dataset
 
 deepspeed_config_file=ds_zero2_no_offload.json
 
