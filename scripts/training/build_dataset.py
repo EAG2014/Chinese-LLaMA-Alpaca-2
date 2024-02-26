@@ -65,7 +65,7 @@ def build_instruction_dataset(data_path: Union[List[str],str],
         cache_path = os.path.join(data_cache_dir,os.path.basename(file).split('.')[0]+f"_{max_seq_length}")
         os.makedirs(cache_path, exist_ok=True)
         try:
-            processed_dataset = datasets.load_from_disk(cache_path)
+            processed_dataset = datasets.load_dataset(cache_path)
             logger.info(f'training datasets-{file} has been loaded from disk')
         except Exception:
             raw_dataset = load_dataset("json", data_files=file, cache_dir=cache_path)
