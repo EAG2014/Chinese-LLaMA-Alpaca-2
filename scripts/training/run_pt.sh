@@ -55,5 +55,8 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --load_in_kbits 16 \
     --save_safetensors False \
     --gradient_checkpointing \
-    --ddp_find_unused_parameters False
+    --ddp_find_unused_parameters False \
+    # 单机双卡
+    --nnodes 1 \
+    --nproc_per_node 2
 
