@@ -18,7 +18,7 @@ output_dir=output_dir
 
 deepspeed_config_file=ds_zero2_no_offload.json
 
-torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
+torchrun --nnodes 1 --nproc_per_node 2 run_clm_pt_with_peft.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${chinese_tokenizer_path} \
@@ -56,7 +56,4 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_pt_with_peft.py \
     --save_safetensors False \
     # --gradient_checkpointing \
     --ddp_find_unused_parameters False \
-    # 单机双卡
-    --nnodes 1 \
-    --nproc_per_node 2
 
