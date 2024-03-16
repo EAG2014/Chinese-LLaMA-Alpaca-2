@@ -29,7 +29,7 @@ torchrun --nnodes 1 --nproc_per_node 2 run_clm_pt_with_peft.py \
     --do_train \
     --seed $RANDOM \
     --fp16 \
-    --num_train_epochs 1 \
+    --num_train_epochs 5 \
     --lr_scheduler_type cosine \
     --learning_rate ${lr} \
     --warmup_ratio 0.05 \
