@@ -57,5 +57,5 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --torch_dtype float16 \
     --save_safetensors False \
     --validation_file ${validation_file} \
-    --peft_path ${peft_model} \
+    # --peft_path ${peft_model} \
     --load_in_kbits
