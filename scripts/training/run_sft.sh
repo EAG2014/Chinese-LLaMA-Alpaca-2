@@ -30,7 +30,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --do_eval \
     --seed $RANDOM \
     --fp16 \
-    --num_train_epochs 1 \
+    --num_train_epochs 2 \
     --lr_scheduler_type cosine \
     --learning_rate ${lr} \
     --warmup_ratio 0.03 \
@@ -40,8 +40,8 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --save_strategy steps \
     --save_total_limit 3 \
     --evaluation_strategy steps \
-    --eval_steps 100 \
-    --save_steps 200 \
+    --eval_steps 250 \
+    --save_steps 500 \
     --gradient_accumulation_steps ${gradient_accumulation_steps} \
     --preprocessing_num_workers 8 \
     --max_seq_length ${max_seq_length} \
@@ -52,11 +52,10 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --lora_rank ${lora_rank} \
     --lora_alpha ${lora_alpha} \
     --trainable ${lora_trainable} \
-    --lora_dropout ${lora_dropout} \
     --modules_to_save ${modules_to_save} \
+    --lora_dropout ${lora_dropout} \
     --torch_dtype float16 \
-    # --validation_file ${validation_file} \
-    --load_in_kbits 16 \
     --save_safetensors False \
-    --gradient_checkpointing \
-    --ddp_find_unused_parameters False
+    --validation_file ${validation_file} \
+    --peft_path ${peft_model} \
+    --load_in_kbits
