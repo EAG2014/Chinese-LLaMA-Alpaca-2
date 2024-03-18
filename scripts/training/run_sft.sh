@@ -28,7 +28,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --per_device_eval_batch_size ${per_device_eval_batch_size} \
     --do_train \
     --do_eval \
-    --seed $RANDOM \
+    --seed 000000000000000000000001SomeSeed \
     --fp16 \
     --num_train_epochs 2 \
     --lr_scheduler_type cosine \
