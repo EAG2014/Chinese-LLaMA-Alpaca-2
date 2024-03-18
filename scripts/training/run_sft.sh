@@ -7,8 +7,8 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=/kaggle/working/chinese-alpaca-2-1.3b
-chinese_tokenizer_path=/kaggle/working/chinese-alpaca-2-1.3b
+pretrained_model=/kaggle/input/chinese-llama2
+chinese_tokenizer_path=/kaggle/input/chinese-llama2
 dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/dataset
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
