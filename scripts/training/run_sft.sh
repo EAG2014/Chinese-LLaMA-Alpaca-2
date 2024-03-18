@@ -6,6 +6,7 @@ lora_alpha=128
 lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
+seed="000000000000000000000001SomeSeed"
 
 pretrained_model=/kaggle/input/chinese-llama2
 chinese_tokenizer_path=/kaggle/input/chinese-llama2
@@ -28,7 +29,7 @@ torchrun --nnodes 1 --nproc_per_node 1 run_clm_sft_with_peft.py \
     --per_device_eval_batch_size ${per_device_eval_batch_size} \
     --do_train \
     --do_eval \
-    --seed 000000000000000000000001SomeSeed \
+    --seed ${seed} \
     --fp16 \
     --num_train_epochs 2 \
     --lr_scheduler_type cosine \
