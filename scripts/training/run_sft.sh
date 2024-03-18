@@ -9,7 +9,7 @@ lora_dropout=0.05
 
 pretrained_model=/kaggle/input/chinese-llama2
 chinese_tokenizer_path=/kaggle/input/chinese-llama2
-dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/dataset/sft/train.txt
+dataset_dir=/kaggle/working/Chinese-LLaMA-Alpaca-2/dataset/sft
 per_device_train_batch_size=1
 per_device_eval_batch_size=1
 gradient_accumulation_steps=8
